@@ -38,6 +38,7 @@ async function renameImages(directory, shouldMoveFiles, showLog) {
 		}
 		if (showLog === 'Yes') {
 			console.log(processed + ' files compressed and renamed.');
+			console.log('They can be found at: ' + directory);
 		}
 		console.log('Done.');
 	});
