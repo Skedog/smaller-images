@@ -59,7 +59,7 @@ async function pullImagesFromURL(result) {
 	crawler.decodeResponses = true;
 	const listOfImages = [];
 	crawler.addFetchCondition(queueItem => {
-		return queueItem.path.match(/\.jpg|\.jpeg|\.JPG|\.JPEG|\.png|\.PNG/);
+		return queueItem.path.match(/jpe?g|png/i);
 	});
 	crawler.on('fetchcomplete', queueItem => {
 		const options = {
@@ -124,14 +124,14 @@ const schema = {
 		jpgQuality: {
 			description: 'Quality of compressed .jpg files (% quality)',
 			type: 'integer',
-			pattern: '^[0-9]*$',
+			pattern: '^(100|\d{1,2})$',
 			message: 'Must be a valid number',
 			default: 35
 		},
 		pngQuality: {
 			description: 'Quality of compressed .png files (% quality)',
 			type: 'integer',
-			pattern: '^[0-9]*$',
+			pattern: '^(100|\d{1,2})$',
 			message: 'Must be a valid number',
 			default: 65
 		},
