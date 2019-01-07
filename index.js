@@ -123,27 +123,25 @@ const schema = {
 		},
 		jpgQuality: {
 			description: 'Quality of compressed .jpg files (% quality)',
-			type: 'integer',
-			pattern: '^(100|\d{1,2})$',
-			message: 'Must be a valid number',
+			pattern: /^(100|\d{1,2})$/,
+			message: 'Must be a valid number and <= 100',
 			default: 35
 		},
 		pngQuality: {
 			description: 'Quality of compressed .png files (% quality)',
-			type: 'integer',
-			pattern: '^(100|\d{1,2})$',
-			message: 'Must be a valid number',
+			pattern: /^(100|\d{1,2})$/,
+			message: 'Must be a valid number and <= 100',
 			default: 65
 		},
 		shouldMove: {
 			description: 'Move .min.* files into the base directory?',
-			pattern: '^(?:Yes|No)$',
+			pattern: /^(?:Yes|No)$/,
 			message: 'Must be Yes or No',
 			default: 'No'
 		},
 		showLog: {
 			description: 'Show log?',
-			pattern: '^(?:Yes|No)$',
+			pattern: /^(?:Yes|No)$/,
 			message: 'Must be Yes or No',
 			default: 'Yes'
 		}
